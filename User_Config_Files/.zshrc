@@ -95,6 +95,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias v="vim"
 alias ains="sudo apt install"
+alias arm="sudo apt remove"
 alias update="sudo apt update"
 alias upgrade="sudo apt upgrade"
 alias gv="gvim"

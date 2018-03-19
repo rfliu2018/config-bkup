@@ -3,21 +3,23 @@ filetype off
 
 " ### Vim-plug
 call plug#begin('~/.vim/plugged')
-Plug 'Valloric/YouCompleteMe'
-Plug 'scrooloose/nerdtree'
 Plug 'joshdick/onedark.vim'
 Plug 'ervandew/supertab'
+Plug 'tpope/vim-unimpaired'
 Plug 'easymotion/vim-easymotion'
+Plug 'Chiel92/vim-autoformat'
 Plug 'itchyny/lightline.vim'
 Plug 'majutsushi/tagbar'
+Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
+Plug 'Valloric/YouCompleteMe'
 call plug#end()
 
 
 "###外观
 colorscheme onedark                " 配置颜色主题
 " set guifont=Consolas:h12         " 设置字体和大小
-set number                         " 显示行号
+set number relativenumber      " 显示行号
 set ruler                          " 打开状态栏标尺
 set cursorline                     " 突出显示当前行
 set syntax=on                      " 语法高亮
@@ -27,7 +29,7 @@ set matchtime=3                    " 匹配括号高亮的时间(单位：0.1s)
 set scrolloff=10                   " 光标到屏幕底端保留 10 行 (光标位于屏底看着很不舒服的)
 set lines=35 columns=118           " 启动时的大小
 winpos 177 51                     " 启动时的位置
-set wrap 			   " 自动换行
+set wrap			   " 自动换行
 
 
 "###搜索
@@ -46,7 +48,7 @@ set tabstop=4                      " Tab 键的宽度
 set shiftwidth=4                   " 行交错宽度
 set mouse+=a                       " 鼠标可用
 set autoindent                     " 继承前一行的缩进方式，特别适用于多行注释
-set autochdir 					   " 将当前目录自动切换为文件所在目录
+set autochdir					   " 将当前目录自动切换为文件所在目录
 set completeopt=longest,menu	   "让Vim的补全菜单行为与一般IDE一
 
 "###备份
@@ -95,16 +97,24 @@ highlight PMenuSel ctermfg=242 ctermbg=8 guifg=darkgrey guibg=black
 
 "@@@ lightline.vim
 let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ 'active': {
-      \   'right': [ [ 'lineinfo' ],
-      \              [ 'percent' ],
-      \              [ 'fileformat', 'fileencoding', 'filetype', 'charvaluehex' ] ]
-      \ },
-      \ 'component': {
-      \   'charvaluehex': '0x%B'
-      \ },
-      \ }
+			\ 'colorscheme': 'wombat',
+			\ 'active': {
+			\   'right': [ [ 'lineinfo' ],
+			\              [ 'percent' ],
+			\              [ 'fileformat', 'fileencoding', 'filetype', 'charvaluehex' ] ]
+			\ },
+			\ 'component': {
+			\   'charvaluehex': '0x%B'
+			\ },
+			\ }
 
 "@@@ tagbar.vim
 nmap <F8> :TagbarToggle<CR>
+
+"@@@ vim-autoformat.vim
+noremap <F3> :Autoformat<CR>
+au BufWrite * :Autoformat "formatted upon saving file
+
+
+"@@@ vim-commentary.vim
+nnoremap \c gcc
