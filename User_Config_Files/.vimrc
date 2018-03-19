@@ -63,6 +63,11 @@ set fenc=utf-8
 set fencs=utf-8,usc-bom,euc-jp,gb18030,gbk,gb2312,cp936
 
 
+
+"&&& 快捷键重置
+nnoremap L $
+nnoremap H ^
+
 "@@@ youcompleteme.vim
 let g:ycm_confirm_extra_conf=0 "关闭加载.ycm_extra_conf.py提示
 let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
