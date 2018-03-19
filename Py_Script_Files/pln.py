@@ -1,3 +1,5 @@
+# 为shell命令ln加强，使得源路径不必是绝对路径
+
 from sys import argv
 from subprocess import call
 import os.path

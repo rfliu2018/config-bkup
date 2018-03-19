@@ -1,3 +1,5 @@
+# 为c, c++提供统一的编译脚本
+
 from subprocess import call
 from sys import argv
 
