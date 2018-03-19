@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/blackt/.oh-my-zsh
+export ZSH=/home/blackt/.oh-my-zsh
 . /usr/share/autojump/autojump.sh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
@@ -60,7 +60,7 @@ ZSH_THEME="random"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git
+git
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -91,7 +91,7 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
+alias zshconfig="vim ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias v="vim"
 alias ains="sudo apt install"
@@ -101,3 +101,8 @@ alias upgrade="sudo apt upgrade"
 alias gv="gvim"
 alias snow="shutdown -h now"
 alias vrc="vim ~/.vimrc"
+
+alias python="python3"
+
+
+alias -s py="python3"
