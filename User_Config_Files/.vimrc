@@ -5,7 +5,7 @@ filetype off
 call plug#begin('~/.vim/plugged')
 Plug 'joshdick/onedark.vim'
 Plug 'ervandew/supertab'
-Plug 'tpope/vim-unimpaired'
+Plug 'jiangmiao/auto-pairs'
 Plug 'easymotion/vim-easymotion'
 Plug 'Chiel92/vim-autoformat'
 Plug 'itchyny/lightline.vim'
@@ -50,6 +50,7 @@ set mouse+=a                       " 鼠标可用
 set autoindent                     " 继承前一行的缩进方式，特别适用于多行注释
 set autochdir					   " 将当前目录自动切换为文件所在目录
 set completeopt=longest,menu	   "让Vim的补全菜单行为与一般IDE一
+let mapleader = ","
 
 "###备份
 set confirm                        " 未保存或者只读时，弹出确认
@@ -67,6 +68,19 @@ set fencs=utf-8,usc-bom,euc-jp,gb18030,gbk,gb2312,cp936
 "&&& 快捷键重置
 nnoremap L $
 nnoremap H ^
+onoremap L $
+onoremap H ^
+nnoremap <TAB> >>
+nnoremap <S-TAB> <<
+vnoremap <TAB> >
+vnoremap <S-TAB> >
+
+"&&& Ctrl
+inoremap <c-l> <right>
+nnoremap <c-l> <c-w>l
+nnoremap <c-h> <c-w>h
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
 
 "@@@ youcompleteme.vim
 let g:ycm_confirm_extra_conf=0 "关闭加载.ycm_extra_conf.py提示
@@ -113,13 +127,73 @@ let g:lightline = {
 			\ },
 			\ }
 
+
+
+
+
+
+
 "@@@ tagbar.vim
 nmap <F8> :TagbarToggle<CR>
+
+
+
+
+
+
 
 "@@@ vim-autoformat.vim
 noremap <F3> :Autoformat<CR>
 au BufWrite * :Autoformat "formatted upon saving file
 
 
+
+
+
+
+
+
 "@@@ vim-commentary.vim
 nnoremap \c gcc
+
+
+
+
+
+
+"@@@ easymotion.vim
+" <Leader>f{char} to move to {char}
+map  <Leader>f <Plug>(easymotion-bd-f)
+nmap <Leader>f <Plug>(easymotion-overwin-f)
+
+" s{char}{char} to move to {char}{char}
+nmap <Leader>s <Plug>(easymotion-overwin-f2)
+
+" Move to line
+map <Leader>L <Plug>(easymotion-bd-jk)
+nmap <Leader>L <Plug>(easymotion-overwin-line)
+
+" Move to word
+map  <Leader>w <Plug>(easymotion-bd-w)
+nmap <Leader>w <Plug>(easymotion-overwin-w)
+
+"$$$ 定义函数SetTitle，自动插入文件头
+autocmd BufNewFile *.py,*.sh, exec ":call SetTitle()"
+let $author_name = "xxxx"
+let $author_email = "xxxx@xxx.xx"
+
+func SetTitle()
+	if &filetype == 'sh'
+		call setline(1, "\#!/bin/bash")
+	elseif &filetype == 'python'
+		call setline(1, "\#!/usr/bin/python")
+		call append(line("."), "\# -*- coding: utf-8 -*-")
+	endif
+endfunc
+
+"
+"$$$
+if has("autocmd")
+	au BufReadPost * if line("`\"") > 1 && line("`\"") <= line("$") | exe "normal! g`\"" | endif
+endif
+" for simplicity, "  au BufReadPost * exe "normal! g`\"", is Okay.

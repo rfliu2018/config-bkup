@@ -1,4 +1,6 @@
 # 为shell命令ln加强，使得源路径不必是绝对路径
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
 
 from sys import argv
 from subprocess import call

@@ -106,3 +106,6 @@ alias python="python3"
 
 
 alias -s py="python3"
+
+
+alias ado="python3 ~/bin/ado.py"

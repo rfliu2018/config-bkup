@@ -1,4 +1,6 @@
 # 为c, c++提供统一的编译脚本
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
 
 from subprocess import call
 from sys import argv
@@ -16,7 +18,7 @@ def main(lt):
     else:
         destination = lt[-1].split('.')[0] + '.out'
 
-    call([cpile] + lt + ['-Wall', '-o'] + [destination])
+    call([cpile] + lt + ['-Wall','-std=c++11', '-o'] + [destination])
 
 
 if __name__ == '__main__':
