@@ -1,11 +1,13 @@
 set nocompatible
 filetype off
+au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
 
 " ### Vim-plug
 call plug#begin('~/.vim/plugged')
 Plug 'joshdick/onedark.vim'
 Plug 'ervandew/supertab'
 Plug 'jiangmiao/auto-pairs'
+Plug 'farmergreg/vim-lastplace'
 Plug 'easymotion/vim-easymotion'
 Plug 'Chiel92/vim-autoformat'
 Plug 'itchyny/lightline.vim'
@@ -82,6 +84,19 @@ nnoremap <c-h> <c-w>h
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 
+"&&& Leader
+inoremap <Leader>l <End>
+inoremap <Leader>{ <End><Space>{<CR>}
+
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"@@@ vim-lastplace.vim
+let g:lastplace_ignore = "gitcommit,gitrebase,svn,hgcommit"
+let g:lastplace_ignore_buftype = "quickfix,nofile,help"
+let g:lastplace_open_folds = 0
+
 "@@@ youcompleteme.vim
 let g:ycm_confirm_extra_conf=0 "关闭加载.ycm_extra_conf.py提示
 let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
@@ -129,16 +144,8 @@ let g:lightline = {
 
 
 
-
-
-
-
 "@@@ tagbar.vim
 nmap <F8> :TagbarToggle<CR>
-
-
-
-
 
 
 
@@ -147,18 +154,8 @@ noremap <F3> :Autoformat<CR>
 au BufWrite * :Autoformat "formatted upon saving file
 
 
-
-
-
-
-
-
 "@@@ vim-commentary.vim
 nnoremap \c gcc
-
-
-
-
 
 
 "@@@ easymotion.vim
@@ -177,6 +174,9 @@ nmap <Leader>L <Plug>(easymotion-overwin-line)
 map  <Leader>w <Plug>(easymotion-bd-w)
 nmap <Leader>w <Plug>(easymotion-overwin-w)
 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 "$$$ 定义函数SetTitle，自动插入文件头
 autocmd BufNewFile *.py,*.sh, exec ":call SetTitle()"
 let $author_name = "xxxx"
@@ -191,9 +191,10 @@ func SetTitle()
 	endif
 endfunc
 
-"
-"$$$
-if has("autocmd")
-	au BufReadPost * if line("`\"") > 1 && line("`\"") <= line("$") | exe "normal! g`\"" | endif
-endif
-" for simplicity, "  au BufReadPost * exe "normal! g`\"", is Okay.
+"$$$ restore the cursor position when opening a file
+" Go to the last cursor location when a file is opened, unless this is a
+" git commit (in which case it's annoying)
+" au BufReadPost *
+"			\ if line("'\"") > 0 && line("'\"") <= line("$") && &filetype != "gitcommit" |
+"			\ execute("normal `\"") |
+"			\ endif
