@@ -8,7 +8,7 @@
 # **( O ) 编程练习网站**
 
 ## **别人的博文推荐**
-> - [2017年最受欢迎的10个编程挑战网站](http://blog.csdn.net/xiexingshishu/article/details/78024571)
+- [2017年最受欢迎的10个编程挑战网站](http://blog.csdn.net/xiexingshishu/article/details/78024571)
 
 
 
@@ -19,55 +19,69 @@
 
 
 #### 	**列表**
-1. 列表解析
+###### 列表解析
 
-> - [Python列表解析详解](http://python.jobbole.com/83884/)
+- [Python列表解析详解](http://python.jobbole.com/83884/)
 
 ### ==Python内置函数==
 #### **eval, exec, execfile**
-> - [**深入分析**Python 中 eval 带来的潜在风险](http://python.jobbole.com/82770/)
-> - [Python中的exec、eval使用实例](http://www.jb51.net/article/55529.htm)
+- [**深入分析**Python 中 eval 带来的潜在风险](http://python.jobbole.com/82770/)
+- [Python中的exec、eval使用实例](http://www.jb51.net/article/55529.htm)
 
 #### **sort和sorted**
-> - ​
+- ​
 
 ### ==Python语句==
 #### **import和from ... import ...**
-> - [使用import匯入模組](https://openhome.cc/Gossip/Python/ImportImportAsFrom.html)
+- [使用import匯入模組](https://openhome.cc/Gossip/Python/ImportImportAsFrom.html)
 
 ## **<u>数据处理</u>**
-### **==numpy And Scipy==**
-> - [Numpy Quickstart tutorial(官网)](https://docs.scipy.org/doc/numpy-dev/user/quickstart.html)
-> - [Python Numpy 数组的初始化和基本操作](http://blog.csdn.net/Baoli1008/article/details/50531684)
-> - [python numpy基础 数组和矢量计算](http://python.jobbole.com/87352/)
-> - [Python 小数点精度控制](http://blog.csdn.net/zhongbeida_xue/article/details/51274760)
-> - [numpy生成随机数组](http://blog.csdn.net/u013066730/article/details/58590270)
+### *各种库*
+
+#### **==numpy And Scipy==**
+
+##### General
+
+- [Numpy Quickstart tutorial(官网)](https://docs.scipy.org/doc/numpy-dev/user/quickstart.html)
+- [Python Numpy 数组的初始化和基本操作](http://blog.csdn.net/Baoli1008/article/details/50531684)
+- [python numpy基础 数组和矢量计算](http://python.jobbole.com/87352/)
+##### Specific
+
+- [numpy生成随机数组](http://blog.csdn.net/u013066730/article/details/58590270)
+#### **==matplotlib.pyplot==**
+
+- [matplotlib入门之Pyplot](http://blog.csdn.net/lilongsy/article/details/72903339)
+- [Python--matplotlib绘图可视化知识点整理](http://python.jobbole.com/85106/)
+
+### *数学相关*
+
 #### 线性代数
-> - [scipy的线性代数](https://docs.scipy.org/doc/scipy/reference/tutorial/linalg.html)
-> - [Python--线性代数篇](http://www.cnblogs.com/moon1992/p/4960700.html)
 
-### **==matplotlib.pyplot==**
-> - [matplotlib入门之Pyplot](http://blog.csdn.net/lilongsy/article/details/72903339)
-> - [Python--matplotlib绘图可视化知识点整理](http://python.jobbole.com/85106/)
+- [scipy的线性代数](https://docs.scipy.org/doc/scipy/reference/tutorial/linalg.html)
+- [Python--线性代数篇](http://www.cnblogs.com/moon1992/p/4960700.html)
 
+
+### Python和数据格式
+
+- [Python 小数点精度控制](http://blog.csdn.net/zhongbeida_xue/article/details/51274760)
 
 ## **<u>文件和I/O</u>**
 ### **文本文件读写**
-> + [Python open()文件处理使用介绍](http://www.jb51.net/article/58002.htm)
++ [Python open()文件处理使用介绍](http://www.jb51.net/article/58002.htm)
 
 
 
 ## **<u>常用的第三方库</u>**
 
 ### ==re==
-> + [re — Regular expression operations(官方文档)](https://docs.python.org/3/library/re.html)
-> + [python正则表达式re模块详细介绍](http://www.jb51.net/article/50511.htm)
-> + [Python detailed Re Match, Search Examples - Dot Net Perls](https://www.dotnetperls.com/re-python)
-> + ​
++ [re — Regular expression operations(官方文档)](https://docs.python.org/3/library/re.html)
++ [python正则表达式re模块详细介绍](http://www.jb51.net/article/50511.htm)
++ [Python detailed Re Match, Search Examples - Dot Net Perls](https://www.dotnetperls.com/re-python)
++ ​
 
 ### ==[os](https://docs.python.org/3/library/os.html)==
 #### **os.path**
-> + [os.path — Common pathname manipulations](https://docs.python.org/3/library/os.path.html)
++ [os.path — Common pathname manipulations](https://docs.python.org/3/library/os.path.html)
 
 ### ==sys==
 
@@ -75,25 +89,25 @@
 
 ### **requests**
 
-> - [Requests: HTTP for Humans](http://www.python-requests.org/en/master/)
+- [Requests: HTTP for Humans](http://www.python-requests.org/en/master/)
 
 #### **beautifulsoup4**
 
-> - [Beautiful Soup Documentation](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
-> - [Beautiful Soup 4.4.0. 文档](http://beautifulsoup.readthedocs.io/zh_CN/latest/#)
+- [Beautiful Soup Documentation](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
+- [Beautiful Soup 4.4.0. 文档](http://beautifulsoup.readthedocs.io/zh_CN/latest/#)
 
 
 
 
 ## **<u>Python语法和规范</u>**
 ### **PEP8**
-> 1. [**PEP 8** -- Style Guide for Python Code](http://legacy.python.org/dev/peps/pep-0008/)
+1. [**PEP 8** -- Style Guide for Python Code](http://legacy.python.org/dev/peps/pep-0008/)
 
 
 ## **<u>数值分析</u>**
 ### **QR算法**
-> + [QR算法](http://blog.csdn.net/cinmyheart/article/details/43976423)
-> + [利用QR算法求解矩阵的特征值和特征向量](http://blog.csdn.net/cinmyheart/article/details/44086369)
++ [QR算法](http://blog.csdn.net/cinmyheart/article/details/43976423)
++ [利用QR算法求解矩阵的特征值和特征向量](http://blog.csdn.net/cinmyheart/article/details/44086369)
 
 
 ## **<u>面向对象分析</u>**
@@ -106,9 +120,8 @@
 
 #### A. ***知乎***
 
-> > - [Python入门网络爬虫之精华版](https://github.com/lining0806/PythonSpiderNotes)
-> > - [宁哥的小站之爬虫部分](http://www.lining0806.com/category/spider/)
-
+- [Python入门网络爬虫之精华版](https://github.com/lining0806/PythonSpiderNotes)
+- [宁哥的小站之爬虫部分](http://www.lining0806.com/category/spider/)
 
 
 ---
@@ -131,7 +144,7 @@
 
 #### A. **Graphics类**
 
-> - [java中paint,repaint,update之间的关系(闪烁问题的解决)](http://blog.csdn.net/sangjinchao/article/details/53052897)
+- [java中paint,repaint,update之间的关系(闪烁问题的解决)](http://blog.csdn.net/sangjinchao/article/details/53052897)
 
 #### B. **Graphics2D类**
 
@@ -142,17 +155,13 @@
 ## **2. 结构化数据** :smile:
 ### 2.1. **Collection**
 #### **A. _总论_**
-> - [Java - Collection实例**简略**解析](http://blog.csdn.net/itlwc/article/details/10148321)
+- [Java - Collection实例**简略**解析](http://blog.csdn.net/itlwc/article/details/10148321)
+- [Java集合框架之Collection实例**详细**解析](http://blog.csdn.net/qq_28261343/article/details/52614411)
 >
-> - [Java集合框架之Collection实例**详细**解析](http://blog.csdn.net/qq_28261343/article/details/52614411)
->
-> - [Java**遍历**集合的几种方法分析（实现原理、算法性能、适用场合）](http://www.cnblogs.com/xyhuangjinfu/p/5429644.html)
->
-> - [java提高篇(三十)-----Iterator](http://cmsblogs.com/?p=1185)
->
-> - [java的**iterator删除**机制](http://www.cnblogs.com/hasse/p/5024193.html)
->
->   ​
+- [Java**遍历**集合的几种方法分析（实现原理、算法性能、适用场合）](http://www.cnblogs.com/xyhuangjinfu/p/5429644.html)
+- [java提高篇(三十)-----Iterator](http://cmsblogs.com/?p=1185)
+- [java的**iterator删除**机制](http://www.cnblogs.com/hasse/p/5024193.html)
+  ​
 
 #### **B. _Set_**
 >
