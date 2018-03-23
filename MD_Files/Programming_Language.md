@@ -43,11 +43,18 @@
 ##### General
 
 - [Numpy Quickstart tutorial(官网)](https://docs.scipy.org/doc/numpy-dev/user/quickstart.html)
+- [NumPy functions by category(官网)](https://docs.scipy.org/doc/numpy/reference/routines.html)
+- [The N-dimensional array(官网)](https://docs.scipy.org/doc/numpy-1.13.0/reference/arrays.ndarray.html)
 - [Python Numpy 数组的初始化和基本操作](http://blog.csdn.net/Baoli1008/article/details/50531684)
 - [python numpy基础 数组和矢量计算](http://python.jobbole.com/87352/)
 ##### Specific
 
+- [Array creation routines(官网)](https://docs.scipy.org/doc/numpy-1.13.0/reference/routines.array-creation.html#routines-array-creation)
+
+##### Other Items
+
 - [numpy生成随机数组](http://blog.csdn.net/u013066730/article/details/58590270)
+- [numpy 数组维度操作 reshape/flatten/transpose](https://blog.csdn.net/weixin_38283159/article/details/78793277)
 #### **==matplotlib.pyplot==**
 
 - [matplotlib入门之Pyplot](http://blog.csdn.net/lilongsy/article/details/72903339)
