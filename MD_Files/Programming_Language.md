@@ -55,10 +55,23 @@
 
 - [numpy生成随机数组](http://blog.csdn.net/u013066730/article/details/58590270)
 - [numpy 数组维度操作 reshape/flatten/transpose](https://blog.csdn.net/weixin_38283159/article/details/78793277)
+##### Questions
+
+- [Stackoverflow: numpy: multiply arrays rowwise](https://stackoverflow.com/questions/22934219/numpy-multiply-arrays-rowwise)
+- [Numpy中Meshgrid函数介绍及2种应用场景](http://www.cnblogs.com/lemonbit/p/7593898.html)
+
 #### **==matplotlib.pyplot==**
+
+##### General
+
+- [pyplot tutorial(官网)](https://matplotlib.org/tutorials/introductory/pyplot.html)
+- [Matplotlib tutorial](http://www.labri.fr/perso/nrougier/teaching/matplotlib/) <!--个人博客，简略全，旁边有参考链接-->
+- [Matplotlib 教程 | 始终](https://liam0205.me/2014/09/11/matplotlib-tutorial-zh-cn/)  <!--翻译的上文-->
+
 
 - [matplotlib入门之Pyplot](http://blog.csdn.net/lilongsy/article/details/72903339)
 - [Python--matplotlib绘图可视化知识点整理](http://python.jobbole.com/85106/)
+- [利用matplotlib+numpy绘制多种绘图的方法实例](http://www.jb51.net/article/112805.htm)
 
 ### *数学相关*
 
@@ -72,7 +85,12 @@
 
 - [Python 小数点精度控制](http://blog.csdn.net/zhongbeida_xue/article/details/51274760)
 
+## **<u>数据可视化</u>**
+
+- [6 种 Python 数据可视化工具](http://python.jobbole.com/85601/)
+
 ## **<u>文件和I/O</u>**
+
 ### **文本文件读写**
 + [Python open()文件处理使用介绍](http://www.jb51.net/article/58002.htm)
 
