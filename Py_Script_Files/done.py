@@ -9,8 +9,8 @@ dct = {'c': 'gcc', 'cpp': 'g++'}
 
 
 def main(lt):
-    suffix = lt[0].split('.')[-1]
-    cpile = dct[suffix]
+    suffix = lt[0].split('.')[-1]  # 后缀名
+    cpile = dct[suffix]  # 对应编译器
 
     if lt[-1].split('.')[-1] != suffix:
         destination = lt[-1]
