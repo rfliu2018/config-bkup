@@ -36,7 +36,7 @@
 - [使用import匯入模組](https://openhome.cc/Gossip/Python/ImportImportAsFrom.html)
 
 ## **<u>数据处理</u>**
-### *各种库*
+### 各种库
 
 #### **==numpy And Scipy==**
 
@@ -73,7 +73,7 @@
 - [Python--matplotlib绘图可视化知识点整理](http://python.jobbole.com/85106/)
 - [利用matplotlib+numpy绘制多种绘图的方法实例](http://www.jb51.net/article/112805.htm)
 
-### *数学相关*
+### 数学相关
 
 #### 线性代数
 
@@ -85,9 +85,29 @@
 
 - [Python 小数点精度控制](http://blog.csdn.net/zhongbeida_xue/article/details/51274760)
 
-## **<u>数据可视化</u>**
+## <u>数据可视化</u>
+
+### General
 
 - [6 种 Python 数据可视化工具](http://python.jobbole.com/85601/)
+- [10个超实用的数据可视化库](http://nooverfit.com/wp/10%E4%B8%AA%E8%B6%85%E5%AE%9E%E7%94%A8%E7%9A%84python%E5%8F%AF%E8%A7%86%E5%8C%96%E5%BA%93%EF%BC%8C%E6%80%BB%E6%9C%89%E4%B8%80%E6%AC%BE%E9%80%82%E5%90%88%E4%BD%A0/)
+
+### Specific Topic
+
+#### Basemap
+
+- [Basemap(官网)](https://matplotlib.org/basemap/)
+
+
+- [【python数据挖掘课程】二十二.Basemap地图包安装入门及基础知识讲解](https://blog.csdn.net/Eastmount/article/details/79188415)
+
+
+- [用Python画一个中国地图](https://segmentfault.com/a/1190000010871928)
+- [用Python画中国地图（二）](https://segmentfault.com/a/1190000010900212)
+
+#### PyEcharts
+
+- [Python 数据可视化之PyEcharts](https://zhuanlan.zhihu.com/p/27990382)
 
 ## **<u>文件和I/O</u>**
 
@@ -129,12 +149,6 @@
 1. [**PEP 8** -- Style Guide for Python Code](http://legacy.python.org/dev/peps/pep-0008/)
 
 
-## **<u>数值分析</u>**
-### **QR算法**
-+ [QR算法](http://blog.csdn.net/cinmyheart/article/details/43976423)
-+ [利用QR算法求解矩阵的特征值和特征向量](http://blog.csdn.net/cinmyheart/article/details/44086369)
-
-
 ## **<u>面向对象分析</u>**
 
 ## **<u>函数式编程</u>**
@@ -143,10 +157,12 @@
 
 ### **1. 别人的笔记**
 
-#### A. ***知乎***
+#### A. 知乎
 
 - [Python入门网络爬虫之精华版](https://github.com/lining0806/PythonSpiderNotes)
 - [宁哥的小站之爬虫部分](http://www.lining0806.com/category/spider/)
+
+
 
 
 ---
@@ -298,17 +314,7 @@
 ## **12. 面向对象程序设计**
 ## **13. 模板与泛型编程**
 
----
 
-# (四) 数据结构(简略版)
-## **书籍**
-> - [pdf基础算法下载](https://cses.fi/book.pdf)
-
----
-
-# （五）计算机网络
-
-- [同网段和不同网段设备通信原理详解](http://blog.csdn.net/tao546377318/article/details/50313441)
 
 ---
 # (五) 开发工具

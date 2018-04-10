@@ -51,9 +51,8 @@
 
 ### Go Beyond the FireWall !!!
 
-- [墙外优秀网站推荐 我发现有不少人都不知道翻墙之后应该去哪里，这次就推荐一下个人比较喜欢的一些网站吧： 首先介绍三个墙外网站集合介绍站点： 1，爱翻墙：...](https://plus.google.com/+GhostAssassin/posts/gLDd5iDDG1V)
 - [爱翻墙 - 网址导航](http://www.ifanqiang.com/)
-- [7k 免费科学上网工具](https://www.in7k.com/4609.html)
+- [7k 免费科学上网工具](https://www.7k21.com/)
 
 ### Practical tools for Windows
 
@@ -135,6 +134,14 @@
 #### Linux Terminal And Shell
 
 - [Linux Shell Scripting Tutorial - A Beginner's handbook](https://bash.cyberciti.biz/guide/Main_Page)
+#### Windows
+
+##### Programming Language
+
+###### Python
+
+- [Unofficial Windows Binaries for Python Extension Packages](https://www.lfd.uci.edu/~gohlke/pythonlibs/)
+
 ## NJU
 
 - [南京大学教务处](http://jw.nju.edu.cn/)
@@ -377,6 +384,35 @@
 
 - [Subtle patterns](https://www.toptal.com/designers/subtlepatterns/) <!--图案填充-->
 
+
+#### ==Picture==
+
+##### Picture Search
+
+- [视觉中国](https://www.vcg.com/) <!--原华盖创意-->
+- [全景网](http://www.quanjing.com/)
+- [Flickr](https://www.flickr.com/)
+- [500PX](https://500px.com/)
+
+##### Icon and Vector Graphics Search
+
+- [IconFinder](https://www.iconfinder.com/) <!--图标(png/svg)-->
+- [NounProject](https://thenounproject.com/) <!--图标(svg)-->
+- [Flaticon](https://thenounproject.com/) <!--图标(png/svg/eps)-->
+- [Freepik](https://www.freepik.com/) <!--(图标和插画)(ai/eps/psd/png/svg)-->
+
+#### ==Font==
+
+##### Unclassified
+
+- [找字网](http://www.zhaozi.cn/)
+- [FontSquirrel](https://www.fontsquirrel.com/)
+- [字体排版](https://www.typeisbeautiful.com/)
+
+##### Font Recognition
+
+- [Myfonts](https://www.myfonts.com/) <!--英文字体识别-->
+- [求字体网](http://www.qiuziti.com/)
 
 
 ## Tools Online (include introdution)
