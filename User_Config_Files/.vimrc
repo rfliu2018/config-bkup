@@ -86,9 +86,14 @@ nnoremap <c-k> <c-w>k
 
 "&&& Leader
 inoremap <Leader>l <End>
-inoremap <Leader>{ <End><Space>{<CR>}
+inoremap <Leader>{ <End><Space>{}<Left>
+inoremap <Leader>; <End>;
 
+"&&& 简化
+nnoremap cw ciw
 
+"&&&
+nnoremap <Esc><Esc> :set hlsearch!
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
