@@ -51,7 +51,8 @@ set shiftwidth=4                   " 行交错宽度
 set mouse+=a                       " 鼠标可用
 set autoindent                     " 继承前一行的缩进方式，特别适用于多行注释
 set autochdir					   " 将当前目录自动切换为文件所在目录
-set completeopt=longest,menu	   "让Vim的补全菜单行为与一般IDE一
+" set completeopt=longest,menu	   "让Vim的补全菜单行为与一般IDE一
+set completeopt=menu,menuone
 let mapleader = ","
 
 "###备份
@@ -72,6 +73,8 @@ nnoremap L $
 nnoremap H ^
 onoremap L $
 onoremap H ^
+vnoremap L $
+vnoremap H ^
 nnoremap <TAB> >>
 nnoremap <S-TAB> <<
 vnoremap <TAB> >
@@ -86,9 +89,16 @@ nnoremap <c-k> <c-w>k
 
 "&&& Leader
 inoremap <Leader>l <End>
-inoremap <Leader>{ <End><Space>{<CR>}
+inoremap <Leader>{ <End><Space>{}<Left>
+inoremap <Leader>; <End>;
+inoremap <Leader>o <End><Cr>
+inoremap <Leader>O <Home><Cr>
 
+"&&& 简化
+nnoremap cw ciw
 
+"&&&
+nnoremap <Esc><Esc> :set hlsearch!<Cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -101,6 +111,7 @@ let g:lastplace_open_folds = 0
 let g:ycm_confirm_extra_conf=0 "关闭加载.ycm_extra_conf.py提示
 let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
 let g:ycm_server_python_interpreter='/usr/bin/python3'
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif	"离开插入模式后自动关闭预览窗口
 inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"
 "上下左右键的行为 会显示其他信息
 inoremap <expr> <Down>     pumvisible() ? "\<C-n>" : "\<Down>"
@@ -112,6 +123,8 @@ let g:ycm_min_num_of_chars_for_completion=2		" 从第2个键入字符就开始�
 let g:ycm_min_num_identifier_candidate_chars=2
 let g:ycm_cache_omnifunc=0						" 禁止缓存匹配项,每次都重新生成匹配项
 let g:ycm_seed_identifiers_with_syntax=1		" 语法关键字补全
+let g:ycm_complete_in_strings = 1   "在字符串输入中也能补全
+let g:ycm_add_preview_to_completeopt = 0
 let g:ycm_key_invoke_completion = '<c-z>'
 let g:ycm_filetype_whitelist = {
 			\ "c":1,
@@ -175,26 +188,76 @@ map  <Leader>w <Plug>(easymotion-bd-w)
 nmap <Leader>w <Plug>(easymotion-overwin-w)
 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-"$$$ 定义函数SetTitle，自动插入文件头
-autocmd BufNewFile *.py,*.sh, exec ":call SetTitle()"
-let $author_name = "xxxx"
-let $author_email = "xxxx@xxx.xx"
-
-func SetTitle()
-	if &filetype == 'sh'
-		call setline(1, "\#!/bin/bash")
-	elseif &filetype == 'python'
-		call setline(1, "\#!/usr/bin/python")
-		call append(line("."), "\# -*- coding: utf-8 -*-")
+" @@@ UltiSnips
+" SirVer/ultisnips 代码片断
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+let g:UltiSnipsListSnippets="<c-e>"
+"定义存放代码片段的文件夹，使用自定义和默认的，将会的到全局，有冲突的会提示
+let g:UltiSnipsSnippetDirectories=["bundle/vim-snippets/UltiSnips"]
+" 参考https://github.com/Valloric/YouCompleteMe/issues/36#issuecomment-62941322
+" 解决ultisnips和ycm tab冲突，如果不使用下面的办法解决可以参考
+" https://github.com/Valloric/YouCompleteMe/issues/36#issuecomment-63205056的配置
+" begin
+" let g:ycm_key_list_select_completion=['<C-n>', '<Down>']
+" let g:ycm_key_list_previous_completion=['<C-p>', '<Up>']
+" let g:UltiSnipsExpandTrigger="<Tab>"
+" let g:UltiSnipsJumpForwardTrigger="<Tab>"
+" let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
+" end
+" UltiSnips completion function that tries to expand a snippet. If there's no
+" snippet for expanding, it checks for completion window and if it's
+" shown, selects first element. If there's no completion window it tries to
+" jump to next placeholder. If there's no placeholder it just returns TAB key
+function! g:UltiSnips_Complete()
+	call UltiSnips#ExpandSnippet()
+	if g:ulti_expand_res == 0
+		if pumvisible()
+			return "\<C-n>"
+		else
+			call UltiSnips#JumpForwards()
+			if g:ulti_jump_forwards_res == 0
+				return "\<TAB>"
+			endif
+		endif
 	endif
-endfunc
+	return ""
+endfunction
+" au BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
+" Expand snippet or return
+let g:ulti_expand_res = 1
+function! Ulti_ExpandOrEnter()
+	call UltiSnips#ExpandSnippet()
+	if g:ulti_expand_res
+		return ''
+	else
+		return "\<return>"
+	endfunction
+	" Set <space> as primary trigger
+	" inoremap <return> <C-R>=Ulti_ExpandOrEnter()<CR>
 
-"$$$ restore the cursor position when opening a file
-" Go to the last cursor location when a file is opened, unless this is a
-" git commit (in which case it's annoying)
-" au BufReadPost *
-"			\ if line("'\"") > 0 && line("'\"") <= line("$") && &filetype != "gitcommit" |
-"			\ execute("normal `\"") |
-"			\ endif
+	"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+	"$$$ 定义函数SetTitle，自动插入文件头
+	autocmd BufNewFile *.py,*.sh, exec ":call SetTitle()"
+	let $author_name = "xxxx"
+	let $author_email = "xxxx@xxx.xx"
+
+	func SetTitle()
+		if &filetype == 'sh'
+			call setline(1, "\#!/bin/bash")
+		elseif &filetype == 'python'
+			call setline(1, "\#!/usr/bin/python")
+			call append(line("."), "\# -*- coding: utf-8 -*-")
+		endif
+	endfunc
+
+	"$$$ restore the cursor position when opening a file
+	" Go to the last cursor location when a file is opened, unless this is a
+	" git commit (in which case it's annoying)
+	" au BufReadPost *
+	"			\ if line("'\"") > 0 && line("'\"") <= line("$") && &filetype != "gitcommit" |
+	"			\ execute("normal `\"") |
+	"			\ endif
