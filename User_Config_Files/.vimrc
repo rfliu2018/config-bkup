@@ -13,6 +13,7 @@ Plug 'Chiel92/vim-autoformat'
 Plug 'itchyny/lightline.vim'
 Plug 'majutsushi/tagbar'
 Plug 'tpope/vim-commentary'
+Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-surround'
 Plug 'Valloric/YouCompleteMe'
 call plug#end()
@@ -94,6 +95,10 @@ inoremap <Leader>; <End>;
 inoremap <Leader>o <End><Cr>
 inoremap <Leader>O <Home><Cr>
 
+nnoremap <Leader><Leader>q :qa<Cr>
+nnoremap <Leader>q :q!<Cr>
+nnoremap <Leader><Leader>w :wqa<Cr>
+
 "&&& 简化
 nnoremap cw ciw
 
@@ -169,6 +174,10 @@ au BufWrite * :Autoformat "formatted upon saving file
 
 "@@@ vim-commentary.vim
 nnoremap \c gcc
+
+" @@@ nerdtree.vim
+map <F5> :NERDTreeToggle<CR>
+autocmd vimenter * NERDTree
 
 
 "@@@ easymotion.vim
