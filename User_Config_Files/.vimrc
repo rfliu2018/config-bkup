@@ -8,6 +8,7 @@ Plug 'joshdick/onedark.vim'
 Plug 'ervandew/supertab'
 Plug 'jiangmiao/auto-pairs'
 Plug 'farmergreg/vim-lastplace'
+Plug 'Yggdroot/indentLine'
 Plug 'easymotion/vim-easymotion'
 Plug 'Chiel92/vim-autoformat'
 Plug 'itchyny/lightline.vim'
@@ -76,6 +77,8 @@ onoremap L $
 onoremap H ^
 vnoremap L $
 vnoremap H ^
+nnoremap tn :tabnext<Cr>
+nnoremap tp :tabprevious<Cr>
 nnoremap <TAB> >>
 nnoremap <S-TAB> <<
 vnoremap <TAB> >
@@ -89,21 +92,29 @@ nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 
 "&&& Leader
+nnoremap <Leader>a %
 inoremap <Leader>l <End>
 inoremap <Leader>{ <End><Space>{}<Left>
 inoremap <Leader>; <End>;
 inoremap <Leader>o <End><Cr>
-inoremap <Leader>O <Home><Cr>
+inoremap <Leader>O <Home><Cr><Up>
 
 nnoremap <Leader><Leader>q :qa<Cr>
 nnoremap <Leader>q :q!<Cr>
 nnoremap <Leader><Leader>w :wqa<Cr>
+nnoremap <Leader><Leader>s :split<Cr>
+nnoremap <Leader><Leader>v :vsplit<Cr>
+
+nnoremap <Leader>z :wq<Cr>
 
 "&&& 简化
 nnoremap cw ciw
 
 "&&&
 nnoremap <Esc><Esc> :set hlsearch!<Cr>
+
+"&&&
+nnoremap \s :%s//
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -164,6 +175,10 @@ let g:lightline = {
 
 "@@@ tagbar.vim
 nmap <F8> :TagbarToggle<CR>
+let g:tag_sort=0
+let g:tagbar_indent = 0
+let g:tagbar_left=1
+let g:tagbar_width=25
 
 
 
@@ -171,13 +186,25 @@ nmap <F8> :TagbarToggle<CR>
 noremap <F3> :Autoformat<CR>
 au BufWrite * :Autoformat "formatted upon saving file
 
+let g:formatdef_custom_c='"astyle --style=linux -cpU -j -z2 --align-pointer=type"'
+let g:formatters_c = ['custom_c']
+let g:formatters_cpp = ['custom_c']
+
 
 "@@@ vim-commentary.vim
-nnoremap \c gcc
+nnoremap <Leader>c :Commentary<Cr>
 
 " @@@ nerdtree.vim
 map <F5> :NERDTreeToggle<CR>
+let NERDTreeWinPos = 'right'
+
+" 显示行号
+let NERDTreeShowLineNumbers=1
+let NERDTreeAutoCenter=1
+
 autocmd vimenter * NERDTree
+" Go to previous (last accessed) window.
+autocmd VimEnter * wincmd p
 
 
 "@@@ easymotion.vim
