@@ -301,7 +301,12 @@
 #### **A. _全局变量_**
 > - [C++全局变量在**多个源代码**文件中的使用](http://blog.csdn.net/jiadebin890724/article/details/40509333)
 
-## **2. 字符串,向量和数组**
+## 2. 字符串,向量和数组
+
+### 数组
+
+- [c++数组遍历十种方式](https://blog.csdn.net/man_sion/article/details/54945579) <!--简略无解释只有代码-->
+
 ## **3. 表达式**
 ## **4. 函数**
 ## **5. 类**
@@ -326,8 +331,21 @@
 
 
 ## **2. Vim**
-### 2.1. **插件**
-### 2.2. **vimrc的一些设置**
+### 2.1. 插件
+
+1. nerdtree
+   - [NERDTree 配置详细](https://blog.csdn.net/ccccdddxxx/article/details/50575753)
+
+### 2.2. vimrc的一些设置
+
+### 2.3. 外部工具
+
+#### Astyle 
+
+- [Astyle官网文档](http://astyle.sourceforge.net/astyle.html)
+
+
+- [Astyle常用参数表格化](http://www.cnblogs.com/zhaoshixin/archive/2011/12/02/2272076.html)
 
 ## **3. Vscode**
 ### 3.1. **Get Started**

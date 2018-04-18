@@ -105,6 +105,9 @@ alias vrc="vim ~/.vimrc"
 alias python="python3"
 
 
+alias -s md="typora"
+alias -s cpp="vim"
+alias -s c="vim"
 alias -s py="python3"
 
 
@@ -121,3 +124,4 @@ alias ncq="ncl -Q"
 alias gs="git status"
 alias ga.="git add ."
 alias gcm="git commit -m"
+alias gpush="git push origin master"
