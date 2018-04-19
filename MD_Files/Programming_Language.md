@@ -322,7 +322,13 @@
 
 
 ---
+# (四)可以尝试的项目
+
+- [c++经典项目控制台贪吃蛇小游戏详细教程](https://blog.csdn.net/silence1772/article/details/55005008)
+- [c++经典项目控制台贪吃蛇小游戏详细教程](https://github.com/silence1772/GreedySnake)
+
 # (五) 开发工具
+
 ## **1. Java**
 ### 1.1. **==IntelliJ IDEA==**
 
