@@ -167,11 +167,11 @@
 
 ---
 # (二) [**Java基础**](https://docs.oracle.com/javase/8/docs/)
-## **1. 图形**
+## 图形
 
-### **1.0. 概述or详论java图形**
+### 概述or详论
 
-> - ()
+- [A Closer Look at the Paint Mechanism](https://docs.oracle.com/javase/tutorial/uiswing/painting/closer.html) <!--super.paintComponet-->
 
 ### **1.1. AWT组件和Swing组件**
 
