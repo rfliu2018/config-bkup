@@ -45,8 +45,8 @@
 - [Numpy Quickstart tutorial(官网)](https://docs.scipy.org/doc/numpy-dev/user/quickstart.html)
 - [NumPy functions by category(官网)](https://docs.scipy.org/doc/numpy/reference/routines.html)
 - [The N-dimensional array(官网)](https://docs.scipy.org/doc/numpy-1.13.0/reference/arrays.ndarray.html)
-- [Python Numpy 数组的初始化和基本操作](http://blog.csdn.net/Baoli1008/article/details/50531684)
-- [python numpy基础 数组和矢量计算](http://python.jobbole.com/87352/)
+- [Python Numpy 数组的初始化和基本操作](http://blog.csdn.net/Baoli1008/article/details/50531684) <!--基本操作-->
+- [python numpy基础 数组和矢量计算](http://python.jobbole.com/87352/) <!--一般-->
 ##### Specific
 
 - [Array creation routines(官网)](https://docs.scipy.org/doc/numpy-1.13.0/reference/routines.array-creation.html#routines-array-creation)
@@ -78,7 +78,7 @@
 #### 线性代数
 
 - [scipy的线性代数](https://docs.scipy.org/doc/scipy/reference/tutorial/linalg.html)
-- [Python--线性代数篇](http://www.cnblogs.com/moon1992/p/4960700.html)
+- [Python--线性代数篇](http://www.cnblogs.com/moon1992/p/4960700.html) <!--条目分明-->
 
 
 ### Python和数据格式
