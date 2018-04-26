@@ -326,6 +326,7 @@
 
 - [c++经典项目控制台贪吃蛇小游戏详细教程](https://blog.csdn.net/silence1772/article/details/55005008)
 - [c++经典项目控制台贪吃蛇小游戏详细教程](https://github.com/silence1772/GreedySnake)
+- [知乎:Java贪吃蛇应用的设计与实现](https://zhuanlan.zhihu.com/p/23316639) <!--设计思想很好-->
 
 # (五) 开发工具
 

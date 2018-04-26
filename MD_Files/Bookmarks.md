@@ -187,6 +187,7 @@
 - [全部课程 | 果壳MOOC学院](http://mooc.guokr.com/course/?dept_id=52&order=grading)
 - [Anki与学习群 精华汇合 - 幕布](https://mubu.com/doc/g5GHJKw1B)
 - [Wikipedia](https://www.wikipedia.org/)
+- [畅想之星——光盘数据库](http://www.bj.cxstar.cn/bookcd/index/index.do)
 
 ##### WeChat
 
