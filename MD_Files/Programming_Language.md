@@ -324,9 +324,15 @@
 ---
 # (四)可以尝试的项目
 
+## C++
+
 - [c++经典项目控制台贪吃蛇小游戏详细教程](https://blog.csdn.net/silence1772/article/details/55005008)
 - [c++经典项目控制台贪吃蛇小游戏详细教程](https://github.com/silence1772/GreedySnake)
+
+## Java
+
 - [知乎:Java贪吃蛇应用的设计与实现](https://zhuanlan.zhihu.com/p/23316639) <!--设计思想很好-->
+- [有哪些适合新手练手的Java项目？](https://zhuanlan.zhihu.com/p/22062736)
 
 # (五) 开发工具
 
@@ -363,3 +369,10 @@
 
 ---
 
+# (六) 其他
+
+## 微信小程序
+
+- [知乎：如何入门微信小程序开发，有哪些学习资料？](https://www.zhihu.com/question/50907897)
+- [微信公共平台：小程序](https://developers.weixin.qq.com/miniprogram/dev/)
+- [简书：微信小程序开发教程--从零开始](https://www.jianshu.com/p/aaef5ceb3936)

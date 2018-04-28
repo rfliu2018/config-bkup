@@ -235,8 +235,6 @@
 - [Kindle4rss](https://kindle4rss.com/)
 - [E-INK - Geek Talks · 奇客怪谈 - Hi!PDA Hi!PDA](http://www.hi-pda.com/forum/forumdisplay.php?fid=59)
 - [TXT精编 - OneDrive](https://onedrive.live.com/?id=65C27572E1EF52BA%21125&cid=65C27572E1EF52BA)
-- [走读派 - Kindle电子书瀑布流](http://www.zoudupai.com/)
-- [看看豆(原看Kindle)-免费电子书分享下载](https://kankandou.com/)
 - [kindle推|kindle推送|kindle图书推送|kindlepush|kindle电子书推送|kindle网站](http://www.kindlepush.com/main)
 - [Export your Kindle Highlights with Clippings.io](https://my.clippings.io/#/)
 - [找资源电子书](http://zhaoziyuan.com/)
