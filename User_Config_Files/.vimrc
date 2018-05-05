@@ -11,6 +11,7 @@ Plug 'farmergreg/vim-lastplace'
 Plug 'Yggdroot/indentLine'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+Plug 'vim-scripts/winmanager'
 Plug 'easymotion/vim-easymotion'
 Plug 'Chiel92/vim-autoformat'
 Plug 'itchyny/lightline.vim'
@@ -174,6 +175,12 @@ let g:ycm_semantic_triggers =  {
             \ }
 highlight PMenu ctermfg=0 ctermbg=242 guifg=black guibg=darkgrey
 highlight PMenuSel ctermfg=242 ctermbg=8 guifg=darkgrey guibg=black
+
+"@@@ winmanager
+let g:winManagerWindowLayout='NERDTree|Tagbar'
+let g:winManagerWidth=30
+nnoremap <Leader>m :WMToggle<Cr>
+
 
 "@@@ vim-lastplace.vim
 let g:lastplace_ignore = "gitcommit,gitrebase,svn,hgcommit"
