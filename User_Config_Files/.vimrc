@@ -65,7 +65,7 @@ set smartindent                    " 打开智能缩进
 set autochdir                      " 将当前目录自动切换为文件所在目录
 " set completeopt=longest,menu     "让Vim的补全菜单行为与一般IDE一
 set completeopt=menu,menuone
-let mapleader = ","
+let mapleader = "\<space>"
 
 "###备份
 set confirm                        " 未保存或者只读时，弹出确认
@@ -100,18 +100,26 @@ nnoremap k gk
 
 "&&& Ctrl
 inoremap <c-l> <right>
+inoremap <c-k> <space>
+
 nnoremap <c-l> <c-w>l
 nnoremap <c-h> <c-w>h
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 
+
 "&&& Leader
 nnoremap <Leader>a %
+inoremap <Leader>a ()<Left>
+inoremap <Leader>z <><Left>
 inoremap <Leader>l <End>
 inoremap <Leader>{ <End><Space>{}<Left>
 inoremap <Leader>; <End>;
+inoremap <leader>< <><Left>
+nnoremap <Leader>n :next<Cr>
 inoremap <Leader>o <End><Cr>
 inoremap <Leader>O <Home><Cr><Up>
+nnoremap <Leader>v V
 
 nnoremap <Leader><Leader>q :qa!<Cr>
 nnoremap <Leader>q :q!<Cr>
@@ -131,27 +139,20 @@ nnoremap <Esc><Esc> :set hlsearch!<Cr>
 nnoremap \s :%s//
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-"@@@ vim-lastplace.vim
-let g:lastplace_ignore = "gitcommit,gitrebase,svn,hgcommit"
-let g:lastplace_ignore_buftype = "quickfix,nofile,help"
-let g:lastplace_open_folds = 0
-
-
 "@@@ youcompleteme.vim
 let g:ycm_confirm_extra_conf=0 "关闭加载.ycm_extra_conf.py提示
 let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
-let g:ycm_server_python_interpreter='/usr/bin/python3'
-autocmd InsertLeave * if pumvisible() == 0|pclose|endif "离开插入模式后自动关闭预览窗口
+let g:ycm_cache_omnifunc=0                      " 禁止缓存匹配项,每次都重新生成匹配项
+" let g:ycm_server_python_interpreter='/usr/bin/python3'
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif    "离开插入模式后自动关闭预览窗口
 inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"
 "上下左右键的行为 会显示其他信息
 inoremap <expr> <Down>     pumvisible() ? "\<C-n>" : "\<Down>"
 inoremap <expr> <Up>       pumvisible() ? "\<C-p>" : "\<Up>"
 inoremap <expr> <PageDown> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<PageDown>"
 inoremap <expr> <PageUp>   pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<PageUp>"
-let g:ycm_collect_identifiers_from_tags_files=1 " 开启 YCM 基于标签引擎
-let g:ycm_min_num_of_chars_for_completion=3     " turns off the identifier completion engine and just leaves the semantic engine.
-let g:ycm_cache_omnifunc=0                      " 禁止缓存匹配项,每次都重新生成匹配项
+let g:ycm_collect_identifiers_from_tags_files=0 " 开启 YCM 基于标签引擎
+let g:ycm_min_num_of_chars_for_completion=99     " turns off the identifier completion engine and just leaves the semantic engine.
 let g:ycm_seed_identifiers_with_syntax=1        " 语法关键字补全
 let g:ycm_complete_in_strings = 1   "在字符串输入中也能补全
 let g:ycm_add_preview_to_completeopt = 0
@@ -173,6 +174,13 @@ let g:ycm_semantic_triggers =  {
             \ }
 highlight PMenu ctermfg=0 ctermbg=242 guifg=black guibg=darkgrey
 highlight PMenuSel ctermfg=242 ctermbg=8 guifg=darkgrey guibg=black
+
+"@@@ vim-lastplace.vim
+let g:lastplace_ignore = "gitcommit,gitrebase,svn,hgcommit"
+let g:lastplace_ignore_buftype = "quickfix,nofile,help"
+let g:lastplace_open_folds = 0
+
+
 
 
 "@@@ lightline.vim
