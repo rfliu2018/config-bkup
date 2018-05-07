@@ -343,10 +343,13 @@
 ##  Vim
 ###  插件
 
-1. nerdtree
+###### nerdtree
+
 - [NERDTree 配置详细](https://blog.csdn.net/ccccdddxxx/article/details/50575753)
 
-###  vimrc的一些设置
+###  vimrc的一些设置&教程
+
+- [Vim galore 中文翻译，构建 Vim 知识体系](https://github.com/wsdjeg/vim-galore-zh_cn)
 
 ###  外部工具
 

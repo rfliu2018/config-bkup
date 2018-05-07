@@ -11,7 +11,6 @@ Plug 'farmergreg/vim-lastplace'
 Plug 'Yggdroot/indentLine'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'vim-scripts/winmanager'
 Plug 'easymotion/vim-easymotion'
 Plug 'Chiel92/vim-autoformat'
 Plug 'itchyny/lightline.vim'
@@ -121,14 +120,17 @@ nnoremap <Leader>n :next<Cr>
 inoremap <Leader>o <End><Cr>
 inoremap <Leader>O <Home><Cr><Up>
 nnoremap <Leader>v V
+nnoremap <leader>l :nohlsearch<cr>:diffupdate<cr>:syntax sync fromstart<cr><c-l>
 
 nnoremap <Leader><Leader>q :qa!<Cr>
 nnoremap <Leader>q :q!<Cr>
 nnoremap <Leader><Leader>w :wqa<Cr>
 nnoremap <Leader><Leader>s :split<Cr>
 nnoremap <Leader><Leader>v :vsplit<Cr>
-
 nnoremap <Leader>z :wq<Cr>
+
+nnoremap <Leader>1 /^.\+$\n{<Cr>
+nnoremap <Leader>2 f(a
 
 "&&& 简化
 nnoremap cw ciw
@@ -176,10 +178,6 @@ let g:ycm_semantic_triggers =  {
 highlight PMenu ctermfg=0 ctermbg=242 guifg=black guibg=darkgrey
 highlight PMenuSel ctermfg=242 ctermbg=8 guifg=darkgrey guibg=black
 
-"@@@ winmanager
-let g:winManagerWindowLayout='NERDTree|Tagbar'
-let g:winManagerWidth=30
-nnoremap <Leader>m :WMToggle<Cr>
 
 
 "@@@ vim-lastplace.vim
@@ -241,8 +239,10 @@ let g:formatters_cpp = ['custom_c']
 "@@@ vim-commentary.vim
 nnoremap <Leader>c :Commentary<Cr>
 
-" @@@ nerdtree.vim
+
+"@@@ nerdtree.vim
 map <F5> :NERDTreeToggle<CR>
+nnoremap <silent> <Leader><Leader>f :NERDTreeFind<CR>
 let NERDTreeWinPos = 'right'
 
 " 显示行号
@@ -252,6 +252,51 @@ let NERDTreeAutoCenter=1
 autocmd vimenter * NERDTree
 " Go to previous (last accessed) window.
 autocmd VimEnter * wincmd p
+
+" automatically close a tab if the only remaining window is NerdTree
+" autocmd bufenter * if (winnr(“$”) == 1 && exists(“b:NERDTreeType”) && b:NERDTreeType == “primary”) | q | endif
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+"@@@ nerdtree.vim
+
+
+
+"@@@ NerdtreeAndTagbar
+function! ToggleNERDTreeAndTagbar()
+    let w:jumpbacktohere = 1
+
+    " Detect which plugins are open
+    if exists('t:NERDTreeBufName')
+        let nerdtree_open = bufwinnr(t:NERDTreeBufName) != -1
+    else
+        let nerdtree_open = 0
+    endif
+    let tagbar_open = bufwinnr('__Tagbar__') != -1
+
+    " Perform the appropriate action
+    if nerdtree_open && tagbar_open
+        NERDTreeClose
+        TagbarClose
+    elseif nerdtree_open
+        TagbarOpen
+    elseif tagbar_open
+        NERDTree
+    else
+        NERDTree
+        TagbarOpen
+    endif
+
+    " Jump back to the original window
+    for window in range(1, winnr('$'))
+        execute window . 'wincmd w'
+        if exists('w:jumpbacktohere')
+            unlet w:jumpbacktohere
+            break
+        endif
+    endfor
+endfunction
+nnoremap <leader>\ :call ToggleNERDTreeAndTagbar()<CR>
+"@@@ NerdtreeAndTagbar
 
 
 "@@@ easymotion.vim
@@ -269,9 +314,11 @@ nmap <Leader>L <Plug>(easymotion-overwin-line)
 " Move to word
 map  <Leader>w <Plug>(easymotion-bd-w)
 nmap <Leader>w <Plug>(easymotion-overwin-w)
+"@@@ easymotion.vim
 
 
-" @@@ UltiSnips
+
+"@@@ UltiSnips
 " SirVer/ultisnips 代码片断
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -308,7 +355,7 @@ function! g:UltiSnips_Complete()
     endif
     return ""
 endfunction
-" au BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
+au BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
 " Expand snippet or return
 let g:ulti_expand_res = 1
 function! Ulti_ExpandOrEnter()
@@ -317,30 +364,32 @@ function! Ulti_ExpandOrEnter()
         return ''
     else
         return "\<return>"
-    endfunction
-    " Set <space> as primary trigger
-    " inoremap <return> <C-R>=Ulti_ExpandOrEnter()<CR>
+    endif
+endfunction
+" Set <space> as primary trigger
+inoremap <return> <C-R>=Ulti_ExpandOrEnter()<CR>
+"@@@ UltiSnips
 
-    """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-    "$$$ 定义函数SetTitle，自动插入文件头
-    autocmd BufNewFile *.py,*.sh, exec ":call SetTitle()"
-    let $author_name = "xxxx"
-    let $author_email = "xxxx@xxx.xx"
+"$$$ 定义函数SetTitle，自动插入文件头
+autocmd BufNewFile *.py,*.sh, exec ":call SetTitle()"
+let $author_name = "xxxx"
+let $author_email = "xxxx@xxx.xx"
 
-    func SetTitle()
-        if &filetype == 'sh'
-            call setline(1, "\#!/bin/bash")
-        elseif &filetype == 'python'
-            call setline(1, "\#!/usr/bin/python")
-            call append(line("."), "\# -*- coding: utf-8 -*-")
-        endif
-    endfunc
+func SetTitle()
+    if &filetype == 'sh'
+        call setline(1, "\#!/bin/bash")
+    elseif &filetype == 'python'
+        call setline(1, "\#!/usr/bin/python")
+        call append(line("."), "\# -*- coding: utf-8 -*-")
+    endif
+endfunc
 
-    "$$$ restore the cursor position when opening a file
-    " Go to the last cursor location when a file is opened, unless this is a
-    " git commit (in which case it's annoying)
-    " au BufReadPost *
-    "           \ if line("'\"") > 0 && line("'\"") <= line("$") && &filetype != "gitcommit" |
-    "           \ execute("normal `\"") |
-    "           \ endif
+"$$$ restore the cursor position when opening a file
+" Go to the last cursor location when a file is opened, unless this is a
+" git commit (in which case it's annoying)
+" au BufReadPost *
+"           \ if line("'\"") > 0 && line("'\"") <= line("$") && &filetype != "gitcommit" |
+"           \ execute("normal `\"") |
+"           \ endif
