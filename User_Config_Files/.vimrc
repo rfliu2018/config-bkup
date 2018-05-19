@@ -1,8 +1,9 @@
 set nocompatible
 filetype off
 au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
-
-" ### Vim-plug
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"### Vim-plug
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/plugged')
 Plug 'joshdick/onedark.vim'
 Plug 'ervandew/supertab'
@@ -22,9 +23,10 @@ Plug 'Valloric/YouCompleteMe'
 call plug#end()
 
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "###外观
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 colorscheme onedark                " 配置颜色主题
-" set guifont=Consolas:h12         " 设置字体和大小
 set number relativenumber      " 显示行号
 set ruler                          " 打开状态栏标尺
 set cursorline                     " 突出显示当前行
@@ -44,14 +46,19 @@ set listchars=tab:‣\ ,trail:·,precedes:«,extends:»,eol:¬
 " set listchars=tab:→\ ,eol:↲,nbsp:␣,trail:•,extends:⟩,precedes:⟨
 " set listchars=tab:▸-,trail:·,eol:↩︎,trail:-
 
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "###搜索
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set ignorecase smartcase           " 搜索忽略大小写，但有大写字母时仍保持大小写敏感
 set hlsearch                       " 高亮搜索
 set incsearch                      " 增量式搜索,逐字符高亮
 set wrapscan               " 循环搜索
 
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "###操作
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set clipboard+=unnamed             " 共享剪切板
 set showcmd                        " 输入的命令显示出来
 set iskeyword+=_,$,@,%,#,-         " 带有如下符号的单词不要被换行分割
@@ -63,25 +70,36 @@ set mouse+=a                       " 鼠标可用
 set autoindent                     " 继承前一行的缩进方式，特别适用于多行注释
 set smartindent                    " 打开智能缩进
 set autochdir                      " 将当前目录自动切换为文件所在目录
-" set completeopt=longest,menu     "让Vim的补全菜单行为与一般IDE一
-set completeopt=menu,menuone
+set completeopt=menu,preview     "让Vim的补全菜单行为与一般IDE一
+set wildmode=longest,list:longest  " zsh-like
+
+set foldenable
+set foldmethod=manual
+set foldcolumn=1
+
 let mapleader = "\<space>"
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "###备份
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set confirm                        " 未保存或者只读时，弹出确认
 set nobackup                       " 不生成备份文件
 setlocal noswapfile                " 不生成 swap 文件
 set bufhidden=hide                 " 当 buffer 被丢弃的时候隐藏
 set noerrorbells                   " 不发出警告声
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "###解码
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
 set enc=utf8
 set fencs=utf8,gbk,gb2312,gb18030
 
 
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "&&& 快捷键重置
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap L $
 nnoremap H ^
 onoremap L $
@@ -98,7 +116,9 @@ vnoremap <S-TAB> >
 nnoremap j gj
 nnoremap k gk
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "&&& Ctrl
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 inoremap <c-l> <right>
 inoremap <c-j> <down>
 inoremap <c-k> <space>
@@ -109,11 +129,14 @@ nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "&&& Leader
-nnoremap <Leader>a %
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap <Leader>1 %
 inoremap <Leader>a ()<Left>
 inoremap <Leader>z <><Left>
 inoremap <Leader>l <End>
+inoremap <Leader>i <Home><Space><Left>
 inoremap <Leader>{ <End><Space>{}<Left>
 inoremap <Leader>; <End>;
 inoremap <leader>< <><Left>
@@ -130,20 +153,23 @@ nnoremap <Leader><Leader>s :split<Cr>
 nnoremap <Leader><Leader>v :vsplit<Cr>
 nnoremap <Leader>z :wq<Cr>
 
-nnoremap <Leader>1 /^.\+$\n{<Cr>
-nnoremap <Leader>2 f(a
+nnoremap <Leader>/ /^.\+$\n{<Cr>
+nnoremap <Leader>a f(a
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "&&& 简化
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap cw ciw
 
-"&&&
 nnoremap <Esc><Esc> :set hlsearch!<Cr>
 
 "&&&
 nnoremap \s :%s//
 
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"@@@ youcompleteme.vim
+"""""""""""""""""""""""""""""""@@@ youcompleteme.vim"""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:ycm_confirm_extra_conf=0 "关闭加载.ycm_extra_conf.py提示
 let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
 let g:ycm_cache_omnifunc=0                      " 禁止缓存匹配项,每次都重新生成匹配项
@@ -160,10 +186,10 @@ let g:ycm_min_num_of_chars_for_completion=99     " turns off the identifier comp
 let g:ycm_seed_identifiers_with_syntax=1        " 语法关键字补全
 let g:ycm_complete_in_strings = 1   "在字符串输入中也能补全
 let g:ycm_add_preview_to_completeopt = 0
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_warning_symbol = '*>'
 let g:ycm_key_invoke_completion = '<c-z>'
-let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_filetype_whitelist = {
             \ "c":1,
             \ "cpp":1,
@@ -179,9 +205,14 @@ let g:ycm_semantic_triggers =  {
 highlight PMenu ctermfg=0 ctermbg=242 guifg=black guibg=darkgrey
 highlight PMenuSel ctermfg=242 ctermbg=8 guifg=darkgrey guibg=black
 
+nnoremap <Leader>jd :YcmCompleter GoToDeclaration<Cr>
+nnoremap <Leader>jc :YcmCompleter GoToDefinition<Cr>
 
 
-"@@@ vim-lastplace.vim
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""@@@ vim-lastplace.vim"""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:lastplace_ignore = "gitcommit,gitrebase,svn,hgcommit"
 let g:lastplace_ignore_buftype = "quickfix,nofile,help"
 let g:lastplace_open_folds = 0
@@ -189,7 +220,9 @@ let g:lastplace_open_folds = 0
 
 
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "@@@ lightline.vim
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:lightline = {
             \ 'colorscheme': 'wombat',
             \ 'active': {
@@ -204,7 +237,9 @@ let g:lightline = {
 
 
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "@@@ tagbar.vim
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nmap <F8> :TagbarToggle<CR>
 let g:tag_sort=0
 let g:tagbar_indent = 0
@@ -212,7 +247,9 @@ let g:tagbar_left=1
 let g:tagbar_width=25
 
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "@@@ UltiSnips.vim
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " make YCM compatible with UltiSnips (using supertab)
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
@@ -226,7 +263,9 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 let g:ycm_use_ultisnips_completer = 1
 
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "@@@ vim-autoformat.vim
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 noremap <F3> :Autoformat<CR>
 au BufWrite * :Autoformat "formatted upon saving file
 let g:autoformat_retab = 1
@@ -237,11 +276,15 @@ let g:formatters_c = ['custom_c']
 let g:formatters_cpp = ['custom_c']
 
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "@@@ vim-commentary.vim
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <Leader>c :Commentary<Cr>
 
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "@@@ nerdtree.vim
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <F5> :NERDTreeToggle<CR>
 nnoremap <silent> <Leader><Leader>f :NERDTreeFind<CR>
 let NERDTreeWinPos = 'right'
@@ -263,7 +306,9 @@ let NERDTreeDirArrows = 1
 
 
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "@@@ NerdtreeAndTagbar
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! ToggleNERDTreeAndTagbar()
     let w:jumpbacktohere = 1
 
@@ -301,7 +346,9 @@ nnoremap <leader>\ :call ToggleNERDTreeAndTagbar()<CR>
 "@@@ NerdtreeAndTagbar
 
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "@@@ easymotion.vim
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " <Leader>f{char} to move to {char}
 map  <Leader>f <Plug>(easymotion-bd-f)
 nmap <Leader>f <Plug>(easymotion-overwin-f)
@@ -320,7 +367,9 @@ nmap <Leader>w <Plug>(easymotion-overwin-w)
 
 
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "@@@ UltiSnips
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SirVer/ultisnips 代码片断
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -372,9 +421,10 @@ endfunction
 inoremap <return> <C-R>=Ulti_ExpandOrEnter()<CR>
 "@@@ UltiSnips
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "$$$ 定义函数SetTitle，自动插入文件头
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 autocmd BufNewFile *.py,*.sh, exec ":call SetTitle()"
 let $author_name = "xxxx"
 let $author_email = "xxxx@xxx.xx"
@@ -388,10 +438,10 @@ func SetTitle()
     endif
 endfunc
 
-"$$$ restore the cursor position when opening a file
-" Go to the last cursor location when a file is opened, unless this is a
-" git commit (in which case it's annoying)
-" au BufReadPost *
-"           \ if line("'\"") > 0 && line("'\"") <= line("$") && &filetype != "gitcommit" |
-"           \ execute("normal `\"") |
-"           \ endif
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+augroup AutoSaveFolds
+    autocmd!
+    autocmd BufWinLeave * mkview
+    autocmd BufWinEnter * silent loadview
+augroup END
