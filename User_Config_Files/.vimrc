@@ -70,12 +70,13 @@ set mouse+=a                       " 鼠标可用
 set autoindent                     " 继承前一行的缩进方式，特别适用于多行注释
 set smartindent                    " 打开智能缩进
 set autochdir                      " 将当前目录自动切换为文件所在目录
-set completeopt=menu,preview     "让Vim的补全菜单行为与一般IDE一
+" set completeopt=menu,preview     "让Vim的补全菜单行为与一般IDE一
+set completeopt=menu
 set wildmode=longest,list:longest  " zsh-like
 
 set foldenable
 set foldmethod=manual
-set foldcolumn=1
+set foldcolumn=2
 
 let mapleader = "\<space>"
 
@@ -161,10 +162,13 @@ nnoremap <Leader>a f(a
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap cw ciw
 
+nnoremap Q @q
+
 nnoremap <Esc><Esc> :set hlsearch!<Cr>
 
 "&&&
 nnoremap \s :%s//
+nnoremap <leader>s :%s/\(<c-r>=expand("<cword>")<cr>\)/
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -261,6 +265,7 @@ let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 let g:ycm_use_ultisnips_completer = 1
+let g:UltiSnipsSnippetDirectories=["UltiSnips", "~/.vim/UltiSnips"]
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -354,7 +359,7 @@ map  <Leader>f <Plug>(easymotion-bd-f)
 nmap <Leader>f <Plug>(easymotion-overwin-f)
 
 " s{char}{char} to move to {char}{char}
-nmap <Leader>s <Plug>(easymotion-overwin-f2)
+nmap <Leader><Leader>s <Plug>(easymotion-overwin-f2)
 
 " Move to line
 map <Leader>L <Plug>(easymotion-bd-jk)
@@ -443,5 +448,5 @@ endfunc
 augroup AutoSaveFolds
     autocmd!
     autocmd BufWinLeave * mkview
-    autocmd BufWinEnter * silent loadview
+    " autocmd BufWinEnter * silent loadview
 augroup END

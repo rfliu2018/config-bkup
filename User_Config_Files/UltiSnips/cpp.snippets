@@ -1,7 +1,11 @@
-snippet std "use namespace std" b
-using namespace std;
+# snippet ret "return expression" w
+# return ${1};
+# endsnippet
+
+snippet vor "vector"
+vector<${2:type}> ${1:name};
 endsnippet
 
-snippet ret "return expression" w
-return ${1};
+snippet std "use namespace std" w
+using namespace std;
 endsnippet
