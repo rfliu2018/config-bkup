@@ -252,23 +252,6 @@ let g:tagbar_width=25
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"@@@ UltiSnips.vim
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" make YCM compatible with UltiSnips (using supertab)
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-let g:SuperTabDefaultCompletionType = '<C-n>'
-
-" better key bindings for UltiSnipsExpandTrigger
-let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
-
-let g:ycm_use_ultisnips_completer = 1
-let g:UltiSnipsSnippetDirectories=["UltiSnips", "~/.vim/UltiSnips"]
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "@@@ vim-autoformat.vim
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 noremap <F3> :Autoformat<CR>
@@ -307,8 +290,6 @@ autocmd VimEnter * wincmd p
 " autocmd bufenter * if (winnr(“$”) == 1 && exists(“b:NERDTreeType”) && b:NERDTreeType == “primary”) | q | endif
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
-"@@@ nerdtree.vim
-
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -348,7 +329,6 @@ function! ToggleNERDTreeAndTagbar()
     endfor
 endfunction
 nnoremap <leader>\ :call ToggleNERDTreeAndTagbar()<CR>
-"@@@ NerdtreeAndTagbar
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -368,7 +348,6 @@ nmap <Leader>L <Plug>(easymotion-overwin-line)
 " Move to word
 map  <Leader>w <Plug>(easymotion-bd-w)
 nmap <Leader>w <Plug>(easymotion-overwin-w)
-"@@@ easymotion.vim
 
 
 
@@ -377,12 +356,13 @@ nmap <Leader>w <Plug>(easymotion-overwin-w)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SirVer/ultisnips 代码片断
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:ycm_use_ultisnips_completer = 1
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 let g:UltiSnipsListSnippets="<c-e>"
 "定义存放代码片段的文件夹，使用自定义和默认的，将会的到全局，有冲突的会提示
-let g:UltiSnipsSnippetDirectories=["bundle/vim-snippets/UltiSnips"]
+let g:UltiSnipsSnippetDirectories=["bundle/vim-snippets/UltiSnips", 'UltiSnips', '~/.vim/UltiSnips']
 " 参考https://github.com/Valloric/YouCompleteMe/issues/36#issuecomment-62941322
 " 解决ultisnips和ycm tab冲突，如果不使用下面的办法解决可以参考
 " https://github.com/Valloric/YouCompleteMe/issues/36#issuecomment-63205056的配置
@@ -424,7 +404,6 @@ function! Ulti_ExpandOrEnter()
 endfunction
 " Set <space> as primary trigger
 inoremap <return> <C-R>=Ulti_ExpandOrEnter()<CR>
-"@@@ UltiSnips
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
