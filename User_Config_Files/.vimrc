@@ -100,6 +100,7 @@ nnoremap k gk
 
 "&&& Ctrl
 inoremap <c-l> <right>
+inoremap <c-j> <down>
 inoremap <c-k> <space>
 
 nnoremap <c-l> <c-w>l
@@ -244,6 +245,7 @@ nnoremap <Leader>c :Commentary<Cr>
 map <F5> :NERDTreeToggle<CR>
 nnoremap <silent> <Leader><Leader>f :NERDTreeFind<CR>
 let NERDTreeWinPos = 'right'
+let g:NERDTreeWinSize=20
 
 " 显示行号
 let NERDTreeShowLineNumbers=1
