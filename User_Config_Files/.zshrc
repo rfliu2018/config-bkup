@@ -1,14 +1,14 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+    # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH=/home/blackt/.oh-my-zsh
 . /usr/share/autojump/autojump.sh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
-# it'll load a random theme each time that oh-my-zsh is loaded.
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="random"
+    # it'll load a random theme each time that oh-my-zsh is loaded.
+    # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+    ZSH_THEME="random"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -21,8 +21,8 @@ ZSH_THEME="random"
 # CASE_SENSITIVE="true"
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
-# sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
+    # sensitive completion must be off. _ and - will be interchangeable.
+    # HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
@@ -40,17 +40,17 @@ ZSH_THEME="random"
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+    # COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
+    # under VCS as dirty. This makes repository status check for large repositories
+        # much, much faster.
+        # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
+    # stamp shown in the history command output.
+    # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+    # HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -73,11 +73,11 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+    # if [[ -n $SSH_CONNECTION ]]; then
+        #   export EDITOR='vim'
+        # else
+            #   export EDITOR='mvim'
+            # fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -89,40 +89,42 @@ source $ZSH/oh-my-zsh.sh
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
-# Example aliases
-alias zshconfig="vim ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-alias v="vim"
-alias ains="sudo apt install"
-alias arm="sudo apt remove"
-alias update="sudo apt update"
-alias upgrade="sudo apt upgrade"
-alias gv="gvim"
-alias snow="shutdown -h now"
-alias vrc="vim ~/.vimrc"
+    #
+    # Example aliases
+    alias zshconfig="vim ~/.zshrc"
+    # alias ohmyzsh="mate ~/.oh-my-zsh"
+    alias v="vim"
+    alias ains="sudo apt install"
+        alias arm="sudo apt remove"
+            alias update="sudo apt update"
+                alias upgrade="sudo apt upgrade"
+                    alias gv="gvim"
+                    alias snow="shutdown -h now"
+                    alias vrc="vim ~/.vimrc"
 
-alias python="python3"
-
-
-alias -s md="typora"
-alias -s cpp="vim"
-alias -s c="vim"
-alias -s py="python3"
+                    alias python="python3"
 
 
-alias ado="python3 ~/bin/ado.py"
-alias pln="python3 ~/bin/pln.py"
+                    alias -s md="typora"
+                    alias -s cpp="vim"
+                    alias -s hpp="vim"
+                    alias -s h="vim"
+                    alias -s c="vim"
+                    alias -s py="python3"
+
+
+                    alias ado="python3 ~/bin/ado.py"
+                        alias pln="python3 ~/bin/pln.py"
 
 # *** for ncl
-export NCARG_ROOT=/opt/ncl_ncarg-6.4.0-Debian8.6_64bit_gnu492
-export PATH=$NCARG_ROOT/bin:$PATH
+    export NCARG_ROOT=/opt/ncl_ncarg-6.4.0-Debian8.6_64bit_gnu492
+    export PATH=$NCARG_ROOT/bin:$PATH
 
-alias ncq="ncl -Q"
+    alias ncq="ncl -Q"
 
 
 # $$$ for git
-alias gs="git status"
-alias ga.="git add ."
-alias gcm="git commit -m"
-alias gpush="git push origin master"
+    alias gs="git status"
+    alias ga.="git add ."
+    alias gcm="git commit -m"
+    alias gpush="git push origin master"

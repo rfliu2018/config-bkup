@@ -1,6 +1,6 @@
 set nocompatible
 filetype off
-au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "### Vim-plug
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -9,6 +9,7 @@ Plug 'joshdick/onedark.vim'
 Plug 'ervandew/supertab'
 Plug 'jiangmiao/auto-pairs'
 Plug 'farmergreg/vim-lastplace'
+Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'Yggdroot/indentLine'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
@@ -75,8 +76,10 @@ set completeopt=menu
 set wildmode=longest,list:longest  " zsh-like
 
 set foldenable
-set foldmethod=manual
+set foldmethod=syntax
 set foldcolumn=2
+
+au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
 
 let mapleader = "\<space>"
 
@@ -98,79 +101,6 @@ set fencs=utf8,gbk,gb2312,gb18030
 
 
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"&&& 快捷键重置
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap L $
-nnoremap H ^
-onoremap L $
-onoremap H ^
-vnoremap L $
-vnoremap H ^
-nnoremap tn :tabnext<Cr>
-nnoremap tp :tabprevious<Cr>
-nnoremap <TAB> >>
-nnoremap <S-TAB> <<
-vnoremap <TAB> >
-vnoremap <S-TAB> >
-
-nnoremap j gj
-nnoremap k gk
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"&&& Ctrl
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-inoremap <c-l> <right>
-inoremap <c-j> <down>
-inoremap <c-k> <space>
-
-nnoremap <c-l> <c-w>l
-nnoremap <c-h> <c-w>h
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"&&& Leader
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <Leader>1 %
-inoremap <Leader>a ()<Left>
-inoremap <Leader>z <><Left>
-inoremap <Leader>l <End>
-inoremap <Leader>i <Home><Space><Left>
-inoremap <Leader>{ <End><Space>{}<Left>
-inoremap <Leader>; <End>;
-inoremap <leader>< <><Left>
-nnoremap <Leader>n :next<Cr>
-inoremap <Leader>o <End><Cr>
-inoremap <Leader>O <Home><Cr><Up>
-nnoremap <Leader>v V
-nnoremap <leader>l :nohlsearch<cr>:diffupdate<cr>:syntax sync fromstart<cr><c-l>
-
-nnoremap <Leader><Leader>q :qa!<Cr>
-nnoremap <Leader>q :q!<Cr>
-nnoremap <Leader><Leader>w :wqa<Cr>
-nnoremap <Leader><Leader>s :split<Cr>
-nnoremap <Leader><Leader>v :vsplit<Cr>
-nnoremap <Leader>z :wq<Cr>
-
-nnoremap <Leader>/ /^.\+$\n{<Cr>
-nnoremap <Leader>a f(a
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"&&& 简化
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap cw ciw
-
-nnoremap Q @q
-
-nnoremap <Esc><Esc> :set hlsearch!<Cr>
-
-"&&&
-nnoremap \s :%s//
-nnoremap <leader>s :%s/\(<c-r>=expand("<cword>")<cr>\)/
-
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""@@@ youcompleteme.vim"""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -185,7 +115,7 @@ inoremap <expr> <Down>     pumvisible() ? "\<C-n>" : "\<Down>"
 inoremap <expr> <Up>       pumvisible() ? "\<C-p>" : "\<Up>"
 inoremap <expr> <PageDown> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<PageDown>"
 inoremap <expr> <PageUp>   pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<PageUp>"
-let g:ycm_collect_identifiers_from_tags_files=0 " 开启 YCM 基于标签引擎
+let g:ycm_collect_identifiers_from_tags_files=1 " 开启 YCM 基于标签引擎
 let g:ycm_min_num_of_chars_for_completion=99     " turns off the identifier completion engine and just leaves the semantic engine.
 let g:ycm_seed_identifiers_with_syntax=1        " 语法关键字补全
 let g:ycm_complete_in_strings = 1   "在字符串输入中也能补全
@@ -203,7 +133,7 @@ let g:ycm_filetype_whitelist = {
             \ "zimbu":1,
             \ }
 let g:ycm_semantic_triggers =  {
-            \ 'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
+            \ 'c,cpp,python,java,go,erlang,perl': ['re!\w{1}'],
             \ 'cs,lua,javascript': ['re!\w{2}'],
             \ }
 highlight PMenu ctermfg=0 ctermbg=242 guifg=black guibg=darkgrey
@@ -357,22 +287,9 @@ nmap <Leader>w <Plug>(easymotion-overwin-w)
 " SirVer/ultisnips 代码片断
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:ycm_use_ultisnips_completer = 1
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-let g:UltiSnipsListSnippets="<c-e>"
 "定义存放代码片段的文件夹，使用自定义和默认的，将会的到全局，有冲突的会提示
-let g:UltiSnipsSnippetDirectories=["bundle/vim-snippets/UltiSnips", 'UltiSnips', '~/.vim/UltiSnips']
-" 参考https://github.com/Valloric/YouCompleteMe/issues/36#issuecomment-62941322
-" 解决ultisnips和ycm tab冲突，如果不使用下面的办法解决可以参考
-" https://github.com/Valloric/YouCompleteMe/issues/36#issuecomment-63205056的配置
-" begin
-" let g:ycm_key_list_select_completion=['<C-n>', '<Down>']
-" let g:ycm_key_list_previous_completion=['<C-p>', '<Up>']
-" let g:UltiSnipsExpandTrigger="<Tab>"
-" let g:UltiSnipsJumpForwardTrigger="<Tab>"
-" let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
-" end
+let g:UltiSnipsSnippetDirectories=['UltiSnips']
+let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips'
 " UltiSnips completion function that tries to expand a snippet. If there's no
 " snippet for expanding, it checks for completion window and if it's
 " shown, selects first element. If there's no completion window it tries to
@@ -405,11 +322,21 @@ endfunction
 " Set <space> as primary trigger
 inoremap <return> <C-R>=Ulti_ExpandOrEnter()<CR>
 
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<c-f>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "$$$ 定义函数SetTitle，自动插入文件头
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-autocmd BufNewFile *.py,*.sh, exec ":call SetTitle()"
+autocmd BufNewFile *.py,*.sh,*.cpp exec ":call SetTitle()"
 let $author_name = "xxxx"
 let $author_email = "xxxx@xxx.xx"
 
@@ -419,6 +346,10 @@ func SetTitle()
     elseif &filetype == 'python'
         call setline(1, "\#!/usr/bin/python")
         call append(line("."), "\# -*- coding: utf-8 -*-")
+    elseif &filetype == 'cpp'
+        call setline(1, "#include <iostream>")
+    elseif &filetype == 'c'
+        call setline(1, "#include <stdio.h>")
     endif
 endfunc
 
@@ -426,6 +357,85 @@ endfunc
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 augroup AutoSaveFolds
     autocmd!
-    autocmd BufWinLeave * mkview
-    " autocmd BufWinEnter * silent loadview
+    autocmd BufWinLeave * if expand("%") != "" | mkview | endif
+    autocmd BufWinEnter * if expand("%") != "" | loadview | endif
 augroup END
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"&&& 快捷键重置
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap L $
+nnoremap H ^
+onoremap L $
+onoremap H ^
+vnoremap L $
+vnoremap H ^
+nnoremap tn :tabnext<Cr>
+nnoremap tp :tabprevious<Cr>
+nnoremap <TAB> >>
+nnoremap <S-TAB> <<
+vnoremap <TAB> >
+vnoremap <S-TAB> >
+
+nnoremap j gj
+nnoremap k gk
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"&&& Ctrl
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+inoremap <c-l> <right>
+inoremap <c-j> <down>
+inoremap <c-k> <space>
+inoremap <c-u> <space>
+inoremap <Leader>k <space>
+
+nnoremap <c-l> <c-w>l
+nnoremap <c-h> <c-w>h
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"&&& Leader
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap <Leader>1 %
+inoremap <Leader>a ()<Left>
+inoremap <Leader>- ->
+inoremap <Leader>z <><Left>
+inoremap <Leader>l <End>
+inoremap <Leader>i <Home><Space><Left>
+inoremap <Leader>{ <End><Space>{}<Left>
+inoremap <Leader>; <End>;
+inoremap <leader>< <><Left>
+nnoremap <Leader>l :loadview<Cr>
+nnoremap <Leader>m :mkview<Cr>
+nnoremap <Leader>n :next<Cr>
+inoremap <Leader>o <End><Cr>
+inoremap <Leader>O <Home><Cr><Up>
+nnoremap <Leader>v V
+nnoremap <leader><Leader>l :nohlsearch<cr>:diffupdate<cr>:syntax sync fromstart<cr><c-l>
+
+nnoremap <Leader><Leader>q :qa!<Cr>
+nnoremap <Leader>q :q!<Cr>
+nnoremap <Leader><Leader>w :wqa<Cr>
+nnoremap <Leader><Leader>s :split<Cr>
+nnoremap <Leader><Leader>v :vsplit<Cr>
+nnoremap <Leader>z :wq<Cr>
+
+nnoremap <Leader>/ /^.\+$\n{<Cr>
+nnoremap <Leader>a f(a
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"&&& 简化
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap cw ciw
+nnoremap Q @q
+nnoremap <Esc><Esc> :set hlsearch!<Cr>
+
+"&&&
+nnoremap \s :%s//
+nnoremap <leader>s :%s/\(<c-r>=expand("<cword>")<cr>\)/
+inoremap <Leader>t <T><Space>
+
