@@ -160,20 +160,21 @@
 
 
 
-
 ---
 #  [**Java基础**](https://docs.oracle.com/javase/8/docs/)
 ## 图形
 
 ### 概述or详论
 
-- [A Closer Look at the Paint Mechanism](https://docs.oracle.com/javase/tutorial/uiswing/painting/closer.html) <!--super.paintComponet-->
+- [Java笔记(10)-图形界面设计、Swing、窗口、JFrame、常用组件和布局、处理事件、MVC结构、对话框、GUI](https://blog.csdn.net/Peng_Hong_fu/article/details/52682179)
 
 ###  AWT组件和Swing组件
 
 ###  创建图形用户界面的基本步骤
 
 ###  布局管理器
+
+- [A Visual Guide to Layout Managers](https://docs.oracle.com/javase/tutorial/uiswing/layout/visual.html)
 
 ###  事件处理
 
@@ -187,9 +188,11 @@
 
 ###  AWT线程（时间分派线程）
 
+### Specific Item
 
+- [A Closer Look at the Paint Mechanism](https://docs.oracle.com/javase/tutorial/uiswing/painting/closer.html) <!--super.paintComponet-->
 
-##  结构化数据 :smile:
+##  结构化数据
 ###  Collection
 ####  总论
 - [Java - Collection实例**简略**解析](http://blog.csdn.net/itlwc/article/details/10148321)
