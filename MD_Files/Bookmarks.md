@@ -435,9 +435,17 @@
 
 ##### 图床
 
-- [小贱贱图床](http://pic.xiaojianjian.net/) <!--用的是微博相册，所以访问速度比较快，20/day-->
-- [SM.MS](https://sm.ms/) <!--支持https，不限数量--> 
+###### General
+
+- [收集常见的公共图床](https://blog.nfz.moe/archives/collection-of-image-hosting.html)
+- [国内外部分可用图床推荐对比](https://www.jianshu.com/p/9dbef7ae6e3b)
+
+###### Specific
+
+- [SM.MS](https://sm.ms/) <!--支持https，不限数量，但打开略慢--> 
+- [路过图床](https://imgchr.com/) <!--打开快-->
 - [我的图床](http://bearther.azurewebsites.net/)
+- [小贱贱图床](http://pic.xiaojianjian.net/) <!--用的是微博相册，所以访问速度比较快，20/day，只有链接-->
 
 ##### OCR Online
 
