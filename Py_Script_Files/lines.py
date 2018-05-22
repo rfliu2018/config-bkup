@@ -1,5 +1,6 @@
 import os
 from typing import TextIO
+from sys import argv
 
 
 def get_lines(file_):
@@ -41,6 +42,8 @@ def get_suffix_files(folder, suffix_files=None, suffix='java'):
 
 
 def main(path, suffix):
+    path = os.path.abspath(path)
+    print(path)
     suffix_files = get_suffix_files(path, suffix=suffix)
 
     total = 0
@@ -55,4 +58,4 @@ def main(path, suffix):
 
 
 if __name__ == '__main__':
-    main('/home/blackt/01_MySQL', suffix='java')
+    main(argv[1], suffix='java')
