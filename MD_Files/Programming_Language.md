@@ -161,7 +161,7 @@
 
 
 ---
-#  [**Java基础**](https://docs.oracle.com/javase/8/docs/)
+#  [**Java**](https://docs.oracle.com/javase/8/docs/)
 ## 图形
 
 ### 概述or详论
@@ -174,7 +174,13 @@
 
 ###  布局管理器
 
+#### Layout
+
 - [A Visual Guide to Layout Managers](https://docs.oracle.com/javase/tutorial/uiswing/layout/visual.html)
+
+#### Border
+
+- [Official: How to Use Borders](https://docs.oracle.com/javase/tutorial/uiswing/components/border.html)
 
 ###  事件处理
 
