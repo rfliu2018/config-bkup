@@ -115,6 +115,7 @@ source $ZSH/oh-my-zsh.sh
 
                     alias ado="python3 ~/bin/ado.py"
                         alias pln="python3 ~/bin/pln.py"
+                        alias lines="python3 ~/bin/lines.py"
 
 # *** for ncl
     export NCARG_ROOT=/opt/ncl_ncarg-6.4.0-Debian8.6_64bit_gnu492

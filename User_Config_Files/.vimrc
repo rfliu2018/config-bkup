@@ -78,6 +78,7 @@ set wildmode=longest,list:longest  " zsh-like
 set foldenable
 set foldmethod=syntax
 set foldcolumn=2
+set foldlevel=1
 
 au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
 
@@ -180,6 +181,10 @@ let g:tagbar_indent = 0
 let g:tagbar_left=1
 let g:tagbar_width=25
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"@@@ indentLine
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "@@@ vim-autoformat.vim
@@ -189,9 +194,14 @@ au BufWrite * :Autoformat "formatted upon saving file
 let g:autoformat_retab = 1
 let g:autoformat_remove_trailing_spaces = 1
 
-let g:formatdef_custom_c='"astyle --style=linux -cpU -j -z2 --align-pointer=type"'
+" let g:formatdef_custom_c='"astyle --style=linux -cpU -j -z2 --align-pointer=type"'
+" 大小写关键
+let g:formatdef_custom_c='"clang-format -style=file"'
+" let g:formatdef_custom_c='"clang-format -style=Google"'
 let g:formatters_c = ['custom_c']
 let g:formatters_cpp = ['custom_c']
+
+autocmd FileType vim,tex,zshrc let b:autoformat_autoindent=0
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -401,6 +411,7 @@ nnoremap <c-k> <c-w>k
 "&&& Leader
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <Leader>1 %
+inoremap <Leader>1 <Space>!=<Space>
 inoremap <Leader>a ()<Left>
 inoremap <Leader>- ->
 inoremap <Leader>z <><Left>
@@ -436,6 +447,6 @@ nnoremap <Esc><Esc> :set hlsearch!<Cr>
 
 "&&&
 nnoremap \s :%s//
-nnoremap <leader>s :%s/\(<c-r>=expand("<cword>")<cr>\)/
+nnoremap <leader>s :%s/\<<c-r>=expand("<cword>")<cr>\>/
 inoremap <Leader>t <T><Space>
 
