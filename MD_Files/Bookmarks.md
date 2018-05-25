@@ -2,8 +2,6 @@
 
 # Bookmarks
 
----
-
 [TOC]
 
 ---
@@ -290,7 +288,6 @@
 - [C语言小项目--贪吃蛇（系列直播课） - 年轻人的在线IT课堂](https://www.boxuegu.com/web/html/video.html?courseId=291&sectionId=8a2c9bed5bf1d0a8015c0d17870512c0&chapterId=8a9bdf305c16a62e015c1a4cd30c006c&vId=8a2c9bed5c304dd9015c330e54a800c4&videoId=EBB2AE778091E5099C33DC5901307461)
 
 ### python
-
 ##### Python Tutorials
 
 - [Python教程 - 廖雪峰的官方网站](http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000)
