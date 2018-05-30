@@ -292,12 +292,12 @@ hr {
 	padding-left: 1rem;
 }
 
-.task-list-item {
+.md-task-list-item {
 	padding-left: 1.5rem;
 	list-style-type: none;
 }
 
-.task-list-item input:before {
+.md-task-list-item > input:before {
 	content: '\221A';
 	display: inline-block;
 	width: 1.25rem;
@@ -308,8 +308,8 @@ hr {
 	background-color: #F3F2EE;
 }
 
-.task-list-item input:checked:before,
-.task-list-item input[checked]:before{
+.md-task-list-item > input:checked:before,
+.md-task-list-item > input[checked]:before{
 	color: inherit;
 }
 
@@ -504,6 +504,10 @@ header, .context-menu, .megamenu-content, footer {
 	color: black;
 }
 
+.ty-side-sort-btn.active {
+	background-color: inherit;
+}
+
 .file-list-item.active .file-list-item-file-name  {
 	font-weight: bold;
 }
@@ -520,4 +524,9 @@ header, .context-menu, .megamenu-content, footer {
 .file-tree-node.active>.file-node-content{
 	color: white;
 	color: var(--active-file-text-color);
+}
+
+.md-task-list-item>input {
+	margin-left: -1.6em;
+	margin-top: calc(1rem - 12px);
 }

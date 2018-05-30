@@ -6,7 +6,6 @@
     --bg-color:  #363B40;
     --side-bar-bg-color: #2E3033;
     --text-color: #b8bfc6;
-    --code-block-bg-color: inherit;//#f8f8f8;
 
     --item-hover-bg-color: #0a0d16;
     --control-text-color: #b7b7b7;
@@ -84,7 +83,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: "Lucida Grande", "Corbal", sans-serif;
+    font-family: "Lucida Grande", "Corbel", sans-serif;
     font-weight: normal;
     clear: both;
     -ms-word-wrap: break-word;
@@ -400,15 +399,15 @@ td {
     padding-left: 0;
 }
 
-.task-list-item {
+.md-task-list-item {
     padding-left: 1.25rem;
 }
 
-.task-list-item input {
-    top: 0.1875rem;
+.md-task-list-item > input {
+    top: auto;
 }
 
-.task-list-item input:before {
+.md-task-list-item > input:before {
     content: "";
     display: inline-block;
     width: 0.875rem;
@@ -417,11 +416,11 @@ td {
     text-align: center;
     border: 1px solid #b8bfc6;
     background-color: #363B40;
-    margin-top: -0.4375rem;
+    margin-top: -0.4rem;
 }
 
-.task-list-item input:checked:before,
-.task-list-item input[checked]:before {
+.md-task-list-item > input:checked:before,
+.md-task-list-item > input[checked]:before {
     content: '\221A';
     /*◘*/
     font-size: 0.625rem;
@@ -785,7 +784,7 @@ footer {
 }
 
 .on-focus-mode .md-end-block:not(.md-focus) img,
-.on-focus-mode .task-list-item:not(.md-focus-container)>input {
+.on-focus-mode .md-task-list-item:not(.md-focus-container)>input {
     opacity: #686868 !important;
 }
 
@@ -812,6 +811,11 @@ footer {
 #write .md-focus .md-diagram-panel {
     border: 1px solid #ddd;
     margin-left: -30px;
+}
+
+/*diagrams*/
+#write.show-fences-line-number .md-focus .md-diagram-panel {
+    margin-left: auto;
 }
 
 .md-diagram-panel-error {
@@ -885,4 +889,10 @@ footer {
 
 #write {
     cursor: -webkit-image-set(url("night/cursor.png") 1x, url("night/cursor@2x.png") 2x) 8 8, auto;
+}
+
+.md-task-list-item>input {
+    margin-left: -1.3em;
+    margin-top: calc(1rem - 10px);
+    -webkit-appearance: none;
 }

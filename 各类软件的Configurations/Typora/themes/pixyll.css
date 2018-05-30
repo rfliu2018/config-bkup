@@ -134,9 +134,8 @@ body {
 	-webkit-box-sizing: border-box;
 }
 
-.md-table-edit {
+.ty-table-edit {
 	background: #ededed;
-    padding-top: 4px;
 }
 
 table {
@@ -362,24 +361,26 @@ a {
 	padding-left: 0;
 }
 
-.task-list-item {
+.md-task-list-item {
 	padding-left:34px;
 }
 
-.task-list-item input{
+.md-task-list-item > input{
 	width: 1.25rem;
 	height: 1.25rem;
 	display: block;
 	-webkit-appearance: initial;
 	top: -2px;
+	margin-left: -1.6em;
+    margin-top: calc(1rem - 7px);
 }
 
-.task-list-item input:focus{
+.md-task-list-item > input:focus{
 	outline: none;
 	box-shadow: none;
 }
 
-.task-list-item input:before{
+.md-task-list-item > input:before{
 	border: 1px solid #555;
 	border-radius: 1.5rem;
 	width: 1.5rem;
@@ -390,20 +391,20 @@ a {
 	display: block;
 }
 
-.task-list-item input:checked:before,
-.task-list-item input[checked]:before{
+.md-task-list-item > input:checked:before,
+.md-task-list-item > input[checked]:before{
 	background: #333;
 	border-width: 2px;
 	display:inline-block;
 	transition: background-color 200ms ease-in-out;
 }
 
-.task-list-item input:checked:after,
-.task-list-item input[checked]:after {
+.md-task-list-item > input:checked:after,
+.md-task-list-item > input[checked]:after {
 	opacity: 1;
 }
 
-.task-list-item input:after {
+.md-task-list-item > input:after {
 	opacity: 1;
 	-webkit-transition: opacity 0.05s ease-in-out;
 	-moz-transition: opacity 0.05s ease-in-out;

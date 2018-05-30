@@ -5,12 +5,14 @@
 ## General
 
 - [专栏 - 计算机理论基础: Forec's notes](http://blog.forec.cn/columns/cs-basic.html)
+- [Learning How to Learn](https://zilongshanren.com/blog/2017-05-09-learning-how-to-learn.html#sec-2-7)
 
 ## Operating System
 
 ### 问题和解答
 
 - [关于特权指令，系统调用，访管指令，trap指令](http://www.cskaoyan.com/thread-183370-1-1.html)
+- [进程内核栈、用户栈](https://blog.csdn.net/bailyzheng/article/details/8015618)
 
 ### General
 
@@ -20,6 +22,7 @@
 ## 计算机组成原理
 
 - [机器字长 存储字长 指令字长 数据字长区别](http://www.cnblogs.com/claremore/p/4802881.html)
+- [详解大端模式和小端模式](https://blog.csdn.net/ce123_zhouwei/article/details/6971544)
 
 ## 算法与数据结构
 
